@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncmw.visualization package &mdash; ncmw  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="ncmw.utils package" href="ncmw.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncmw
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hierarchical_model_composition.html">Hierarchical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script_parameters.html">Script Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ncmw.html">ncmw package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ncmw.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ncmw.analysis.html">ncmw.analysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ncmw.community.html">ncmw.community package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ncmw.scripts.html">ncmw.scripts package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ncmw.setup_models.html">ncmw.setup_models package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ncmw.utils.html">ncmw.utils package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ncmw.visualization package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ncmw.html#module-ncmw">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncmw</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">ncmw</a> &raquo;</li>
+        
+          <li><a href="ncmw.html">ncmw package</a> &raquo;</li>
+        
+      <li>ncmw.visualization package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncmw.visualization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ncmw-visualization-package">
+<h1>ncmw.visualization package<a class="headerlink" href="#ncmw-visualization-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ncmw-visualization-community-visualization-module">
+<h2>ncmw.visualization.community_visualization module<a class="headerlink" href="#ncmw-visualization-community-visualization-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncmw.visualization.fva_visualization">
+<span id="ncmw-visualization-fva-visualization-module"></span><h2>ncmw.visualization.fva_visualization module<a class="headerlink" href="#module-ncmw.visualization.fva_visualization" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="ncmw.visualization.fva_visualization.plot_full_fva">
+<code class="descclassname">ncmw.visualization.fva_visualization.</code><code class="descname">plot_full_fva</code><span class="sig-paren">(</span><em>fva: pandas.core.frame.DataFrame</em>, <em>save_path: str = None</em>, <em>label_only_at_flux: int = 5</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncmw/visualization/fva_visualization.html#plot_full_fva"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncmw.visualization.fva_visualization.plot_full_fva" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots all exchange fluxes, but only labels the one with large flux values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fva</strong> (<em>pd.DataFrame</em>) – FVA dataset</li>
+<li><strong>label_only_at_flux</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – For which value the label should be shown. Defaults to 5.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncmw.visualization.fva_visualization.plot_medium_fva_range">
+<code class="descclassname">ncmw.visualization.fva_visualization.</code><code class="descname">plot_medium_fva_range</code><span class="sig-paren">(</span><em>model</em>, <em>save_path=None</em>, <em>growth_fraction=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncmw/visualization/fva_visualization.html#plot_medium_fva_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncmw.visualization.fva_visualization.plot_medium_fva_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots FVA flux ranges for all exchange reactions</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ncmw-visualization-growth-visualization-module">
+<h2>ncmw.visualization.growth_visualization module<a class="headerlink" href="#ncmw-visualization-growth-visualization-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ncmw-visualization-similarity-visualization-module">
+<h2>ncmw.visualization.similarity_visualization module<a class="headerlink" href="#ncmw-visualization-similarity-visualization-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ncmw.utils.html" class="btn btn-neutral float-left" title="ncmw.utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, manuelgloeckler
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

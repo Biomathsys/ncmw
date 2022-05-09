@@ -1,0 +1,362 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Setup\n",
+    "\n",
+    "An example of what the model setup can do is shown here. This will be demonstrated on five metabolic models: Moraxella, H. Influenza, S. aureus, S. epidermidis and D. pigrum. \n",
+    "\n",
+    "Hence, let's import some of the methods we will use."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Growth CarveMe_SNM_gapfilled_model: 0.7022727466098083\n",
+      "Growth himodel: 63.919604406865695\n",
+      "Growth Staphylococcus_epidermidis_ATCC_12228: 0.5746259500792691\n",
+      "Growth DP_83VPs_KB5: 0.28236539253224924\n",
+      "Growth iYS854: 1.3602249869877683\n"
+     ]
+    }
+   ],
+   "source": [
+    "from ncmw.utils import get_models\n",
+    "from ncmw.setup_models import set_default_configs_and_snm3_medium, create_consistent_model, gapfill_medium, gapfill_model\n",
+    "models = get_models(\"models\")\n",
+    "for model in models:\n",
+    "    print(f\"Growth {model.id}: {model.slim_optimize()}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Notice that the growth values differ strongly. This is because the bounds and the medium differ. So let's first standardize these!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Set default configurations\n",
+    "\n",
+    "This package is devoted to the work on nasal microbiomes expressed through the **SNM3** medium. Unfortunately, most metabolic models are created for the gut and thus often fail to achieve growth on SNM3. Here, 3 of the 5 models fail to achieve growth.\n",
+    "\n",
+    "As a result, we cannot analyze them. However, it must be noted that when analyzing a community, this may be less relevant, as other members can provide missing metabolites through interactions. On the other hand, it may be well known that this species can grow on the medium hence this indicates some problems with the metabolic model."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "standardized_models =[]\n",
+    "for model in models:\n",
+    "    standardized_models.append(set_default_configs_and_snm3_medium(model))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Growth CarveMe_SNM_gapfilled_model: 0.0\n",
+      "Growth himodel: 0.0\n",
+      "Growth Staphylococcus_epidermidis_ATCC_12228: 0.5746259500792691\n",
+      "Growth DP_83VPs_KB5: 0.0\n",
+      "Growth iYS854: 3.044356975357284\n"
+     ]
+    }
+   ],
+   "source": [
+    "for model in standardized_models:\n",
+    "    print(f\"Growth {model.id}: {model.slim_optimize()}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In order to allow analysis and to fix errors, we implement several \"gap filling\" strategies. This adds metabolites to the medium or reactions to the model so that it can grow."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Gapfilling\n",
+    "\n",
+    "To achieve growth on a general predefined medium, we deploy two strategies:\n",
+    "* **Gapfill medium**: Since other members of the community could provide different metabolites that are currently unmodeled, the medium is less strict from the point of view of the community. Hence we may extend the medium by the minimal number of metabolites such that the organism can grow.\n",
+    "* **Gapfill model:** We can add reactions to the model such that it can grow on the given medium i.e. reactions such that the model can synthesize the missing metabolites."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "We need to add following metabolites to the medium: ['EX_fe3dcit_e']\n",
+      "Growth CarveMe_SNM_gapfilled_model: 1.20618744198712\n",
+      "We need to add following metabolites to the medium: ['EX_3ump_e']\n",
+      "Growth himodel: 1.706848711893427\n",
+      "We need to add following metabolites to the medium: []\n",
+      "Growth Staphylococcus_epidermidis_ATCC_12228: 0.5746259500792691\n",
+      "We need to add following metabolites to the medium: ['EX_LalaDgluMdap_e', 'EX_ile__L_e', 'EX_metox_e']\n",
+      "Growth DP_83VPs_KB5: 0.28275198236758425\n",
+      "We need to add following metabolites to the medium: []\n",
+      "Growth iYS854: 3.044356975357284\n"
+     ]
+    }
+   ],
+   "source": [
+    "for model in standardized_models:\n",
+    "    old_medium = model.medium\n",
+    "    m2, extension = gapfill_medium(model)\n",
+    "    print(f\"We need to add following metabolites to the medium: {extension}\")\n",
+    "    print(f\"Growth {m2.id}: {m2.slim_optimize()}\")\n",
+    "    m2.medium = old_medium # Rest for next step"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice, this worked. It also provides us with information about missing metabolites. Note that the solution to this problem is not unique e.g. for the first result an equivalent result would be obtained by adding EX_fe3_e. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "c:\\users\\manug\\desktop\\ncmw projects\\ncmw\\ncmw\\setup_models\\setup.py:66: UserWarning: The model still has no growth... . We try an alternative\n",
+      "  warn(\"The model still has no growth... . We try an alternative\")\n",
+      "c:\\users\\manug\\desktop\\ncmw projects\\ncmw\\ncmw\\setup_models\\setup.py:81: UserWarning: The model still has no growth... . We greadily add sink reactions...\n",
+      "  warn(\"The model still has no growth... . We greadily add sink reactions...\")\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "We need to add following reactions to the model: ['SK_fe3dcit_e']\n",
+      "Growth CarveMe_SNM_gapfilled_model: 1.206187441987119\n",
+      "We need to add following reactions to the model: [<Reaction DINSt2 at 0x1c7b7b52220>]\n",
+      "Growth himodel: 1.2333198465405384\n",
+      "We need to add following reactions to the model: []\n",
+      "Growth Staphylococcus_epidermidis_ATCC_12228: 0.5746259500792709\n",
+      "We need to add following reactions to the model: [<Reaction ACHBS at 0x1c7b1192d00>, <Reaction ASPK at 0x1c7b35fd370>, <Reaction DAPE at 0x1c7ba1746a0>, <Reaction DHAD2 at 0x1c7ba174a00>, <Reaction DHDPRy at 0x1c7ba174a30>, <Reaction DHDPS at 0x1c7ba174a60>, <Reaction HSDx at 0x1c7b2009790>, <Reaction KARA2 at 0x1c7b2009dc0>, <Reaction ASAD_1 at 0x1c7b9c7cd00>]\n",
+      "Growth DP_83VPs_KB5: 0.27989919666526347\n",
+      "We need to add following reactions to the model: []\n",
+      "Growth iYS854: 3.044356975357276\n"
+     ]
+    }
+   ],
+   "source": [
+    "for model in standardized_models:\n",
+    "    m2, extension = gapfill_model(model)\n",
+    "    print(f\"We need to add following reactions to the model: {[e for e in extension]}\")\n",
+    "    print(f\"Growth {m2.id}: {m2.slim_optimize()}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice, this worked too! Notice that the results are quite similar but slightly different. Just adding reactions to a model is, of course, questionable i.e. these reactions should have some empirical evidence. One can look e.g. in KEGG if genes for certain reactions are present for a given species."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Cleaning the model\n",
+    "\n",
+    "There are typically several blocked reactions or mass charge violations within a metabolic model. Thus before checking the quality we may want to remove these e.g. using the FastCC algorithm."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "C:\\Users\\manug\\.conda\\envs\\ncmw\\lib\\site-packages\\cobra\\core\\group.py:107: UserWarning: need to pass in a list\n",
+      "  warn(\"need to pass in a list\")\n",
+      "C:\\Users\\manug\\.conda\\envs\\ncmw\\lib\\site-packages\\cobra\\core\\group.py:107: UserWarning: need to pass in a list\n",
+      "  warn(\"need to pass in a list\")\n"
+     ]
+    }
+   ],
+   "source": [
+    "consistent_models =[]\n",
+    "reports = []\n",
+    "for model in standardized_models:\n",
+    "    consistent_model, report = create_consistent_model(model)\n",
+    "    consistent_models.append(consistent_model)\n",
+    "    reports.append(report)\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Lets look at one of the report returned."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Blocked reactions</th>\n",
+       "      <th>Metabolite formula problems</th>\n",
+       "      <th>Mass charge balance violations</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Original Model</th>\n",
+       "      <td>246</td>\n",
+       "      <td>0</td>\n",
+       "      <td>122</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Consistent model</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>117</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                  Blocked reactions  Metabolite formula problems  \\\n",
+       "Original Model                  246                            0   \n",
+       "Consistent model                  0                            0   \n",
+       "\n",
+       "                  Mass charge balance violations  \n",
+       "Original Model                               122  \n",
+       "Consistent model                             117  "
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "reports[0]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As expected we can see some improvements."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Growth CarveMe_SNM_gapfilled_model: 0.0\n",
+      "Growth himodel: 0.0\n",
+      "Growth Staphylococcus_epidermidis_ATCC_12228: 0.5746259500792683\n",
+      "Growth DP_83VPs_KB5: 0.0\n",
+      "Growth iYS854: 3.0443569753572817\n"
+     ]
+    }
+   ],
+   "source": [
+    "for model in consistent_models:\n",
+    "    print(f\"Growth {model.id}: {model.slim_optimize()}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "And that's it. Now we may first check the model's quality i.e. using **memote**. Next, we can start analyzing and comparing results for the models, or continue to create a community model from these. This also serves as a small overview of what the \"ncmw_setup\" can do."
+   ]
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "23f3bcbc5cf74df6a8e405c0ecedc4bc93aaf7bc724ad3e5b7081b59a0ba1ea9"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.8.5 64-bit ('base': conda)",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

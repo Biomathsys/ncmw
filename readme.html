@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; ncmw  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setup" href="setup.html" />
+    <link rel="prev" title="NCMW (Nasal community modeling workflow)" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ncmw
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ncmw-nasal-community-modeling-workflow">NCMW (Nasal community modeling workflow)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started-with-ncmw">► Getting started with NCMW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#trouble-shooting">Trouble shooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#licensing-and-distribution">☮ Licensing and distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hierarchical_model_composition.html">Hierarchical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="script_parameters.html">Script Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">Module Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ncmw</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="overview">
+<span id="readme"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ncmw-nasal-community-modeling-workflow">
+<h2>NCMW (Nasal community modeling workflow)<a class="headerlink" href="#ncmw-nasal-community-modeling-workflow" title="Permalink to this headline">¶</a></h2>
+<p>A metabolic modeling workflow for communities of organisms in an nasal
+medium. This implements functionality to analyze the interaction of
+metabolic models within a community.</p>
+<a class="reference external image-reference" href="https://opensource.org/licenses/MIT"><img alt="License (MIT Licence)" src="https://img.shields.io/badge/license-MIT-blue.svg?style=plastic" /></a>
+<a class="reference external image-reference" href="https://zenodo.org/badge/latestdoi/377459650"><img alt="DOI" src="https://zenodo.org/badge/377459650.svg" /></a>
+<a class="reference external image-reference" href="https://img.shields.io/tokei/lines/github/manuelgloeckler/ncmw?color=orange&amp;style=plastic"><img alt="Lines of Code" src="https://img.shields.io/tokei/lines/github/manuelgloeckler/ncmw?color=orange&amp;style=plastic" /></a>
+<a class="reference external image-reference" href="https://img.shields.io/github/downloads/manuelgloeckler/ncmw/total.svg?style=plastic"><img alt="Download count" src="https://img.shields.io/github/downloads/manuelgloeckler/ncmw/total.svg?style=plastic" /></a>
+<hr class="docutils" />
+<p><em>Authors</em>: <a class="reference external" href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/systems-biology/team/">Manuel Glöckler</a>,
+<a class="reference external" href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/systems-biology/team/dr-reihaneh-mostolizadeh/">Reihaneh Mostolizadeh</a></p>
+<p><em>Full documentaion page</em>: <a class="reference external" href="https://manuelgloeckler.github.io/ncmw/">https://manuelgloeckler.github.io/ncmw/</a></p>
+<p><em>Repository</em>: <a class="reference external" href="https://github.com/manuelgloeckler/ncmw">https://github.com/manuelgloeckler/ncmw</a></p>
+<p><em>Citation</em>: Please cite us <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fbinf.2022.827024/full">https://www.frontiersin.org/articles/10.3389/fbinf.2022.827024/full</a></p>
+<div class="section" id="getting-started-with-ncmw">
+<h3>► Getting started with NCMW<a class="headerlink" href="#getting-started-with-ncmw" title="Permalink to this headline">¶</a></h3>
+<p>Please see the full documentation as a user manual at <a class="reference external" href="https://manuelgloeckler.github.io/ncmw/">https://manuelgloeckler.github.io/ncmw/</a></p>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Please clone the repository using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/manuelgloeckler/ncmw.git</span></code> . The package and all the dependencies can be installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code>.
+The only requirement that is not installed is some solver that can minimize quadratic objectives and is supported by Pycobra.</p>
+<p>After having cloned the repository, please enter the following command in the same directory where the cloned repository is located:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">ncmw</span>
+</pre></div>
+</div>
+<p>This will install the python package <code class="docutils literal notranslate"><span class="pre">ncmw</span></code> but also console scripts <code class="docutils literal notranslate"><span class="pre">ncmw_setup</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ncmw_analysis</span></code>, <code class="docutils literal notranslate"><span class="pre">ncmw_community</span></code>, and <code class="docutils literal notranslate"><span class="pre">ncmw</span></code>, which calls the latter
+three scripts in sequential order.</p>
+<p>These scripts use <a class="reference external" href="https://hydra.cc/docs/intro/">hydra</a>, thus we can
+overwrite all default values which are organized within <code class="docutils literal notranslate"><span class="pre">data/hydra</span></code>.
+More on overwriting arguments in <a href="#id2"><span class="problematic" id="id3">scripts_</span></a></p>
+<p><em>NOTE:</em> Automatically adding scripts to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> may not work if the
+python environment is not set up correctly. Alternatively you can call
+the scripts by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/ncmw_setup</span></code></p>
+<p>These should be added to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable, to try if this worked use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ncmw</span> <span class="o">--</span><span class="n">help</span> <span class="n">ncmw_setup</span> <span class="o">--</span><span class="n">help</span> <span class="n">ncmw_analysis</span> <span class="o">--</span><span class="n">help</span> <span class="n">ncmw_community</span>
+     <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<div class="section" id="trouble-shooting">
+<h4>Trouble shooting<a class="headerlink" href="#trouble-shooting" title="Permalink to this headline">¶</a></h4>
+<p>It might be necessary to have advanced user permissions because the
+installation script may write into a central directory within your operating system.
+If you receive an error during the installation procedure on a computer running macOS,
+you may need to create an empty file <code class="docutils literal notranslate"><span class="pre">/usr/local/LICENSE</span></code> with write permissions by typing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo touch /usr/local/LICENSE
+sudo chown $(whoami) /usr/local/LICENSE
+</pre></div>
+</div>
+<p>Now rerun <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">ncmw</span></code> and it should work. If not, please report your problem
+via the <a class="reference external" href="https://github.com/manuelgloeckler/ncmw/issues">issue tracker</a>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The package is organised into five parts:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>setup_models</strong>:</dt>
+<dd>which setup metabolic models to the given
+default configuration and medium, e.g., typically SNM3.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>analysis</strong>:</dt>
+<dd>which contains all function for single model analysis .</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>community</strong>:</dt>
+<dd>which contains all code for community analysis
+and implemented community models.</dd>
+</dl>
+</li>
+<li><strong>visualization</strong>: which contains all code to produce figures.</li>
+</ul>
+<p>The <strong>data</strong> folder can be used to modify default values:</p>
+<ul>
+<li><p class="first"><strong>configs</strong> contains the default settings for the maximum lower</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">and</span> <span class="n">upper</span> <span class="n">bound</span> <span class="n">of</span> <span class="n">reactions</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">000</span> <span class="ow">and</span> <span class="mi">1</span><span class="p">,</span><span class="mi">000</span> <span class="n">mmol</span><span class="o">/</span><span class="n">gDW</span><span class="o">/</span><span class="n">h</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>hydra</strong> contains all default parameters for the scripts, which</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">can</span> <span class="n">be</span> <span class="n">overwritten</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">console</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>medium</strong> contains the default <em>SNM3 medium</em>.</p>
+</li>
+<li><p class="first"><strong>models</strong> contains all models that are used by the scripts.</p>
+</li>
+</ul>
+<p>You can change the default values if needed or add additional models to
+the workflow.</p>
+</div>
+<div class="section" id="quick-start">
+<h3>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
+<p>The scripts will automatically produce some results, that is:</p>
+<ul>
+<li><p class="first"><strong>ncmw_setup</strong>:</p>
+</li>
+<li><p class="first">Will set the default bounds as specified in</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`data/configs`, as well as the medium as specified in
+`data/medium`.
+</pre></div>
+</div>
+</li>
+<li><p class="first">Will “gapfill” the model with reactions or the medium with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metabolites</span><span class="p">,</span> <span class="n">such</span> <span class="n">that</span> <span class="nb">all</span> <span class="n">models</span> <span class="n">obtain</span> <span class="n">growth</span> <span class="n">on</span> <span class="n">the</span>
+<span class="n">specified</span> <span class="n">medium</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>ncmw_analysis</strong></p>
+</li>
+<li><p class="first">Will perform flux variability analysis and visualize</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="n">on</span> <span class="nb">all</span> <span class="n">exchange</span> <span class="n">reactions</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Will analyze the uptake/secretion overlap between models</p>
+</li>
+<li><p class="first">Will compute the similarity of models, based on number</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">of</span> <span class="n">shared</span> <span class="n">metabolites</span><span class="o">/</span><span class="n">reactions</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Will compute the <strong>COMPM medium</strong>, which is the medium</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">in</span> <span class="n">which</span> <span class="nb">all</span> <span class="n">models</span> <span class="n">are</span> <span class="n">able</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">their</span> <span class="n">maximal</span>
+<span class="n">biomass</span> <span class="n">rate</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>ncmw_community</strong></p>
+</li>
+<li><p class="first">Will create several kinds of community models.</p>
+</li>
+<li><p class="first">Will compute the <strong>COOPM medium</strong>, which is the smallest</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">medium</span> <span class="n">such</span> <span class="n">that</span> <span class="n">the</span> <span class="n">community</span> <span class="n">achieves</span> <span class="mi">10</span><span class="o">%</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">maximal</span> <span class="n">biomass</span> <span class="n">rate</span><span class="p">,</span> <span class="n">which</span> <span class="n">induces</span> <span class="n">cooperation</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Will visualize the observed interactions between models.</p>
+</li>
+<li><p class="first">Will investigate the dependence of community weight and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">observed</span> <span class="n">growth</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="licensing-and-distribution">
+<h3>☮ Licensing and distribution<a class="headerlink" href="#licensing-and-distribution" title="Permalink to this headline">¶</a></h3>
+<p>NCMW is Copyright (C) 2021-2022 by the following organization:</p>
+<p>The University of Tübingen, Germany</p>
+<p>NCMW is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setup.html" class="btn btn-neutral float-right" title="Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="NCMW (Nasal community modeling workflow)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, manuelgloeckler
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

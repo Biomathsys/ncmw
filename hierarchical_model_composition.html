@@ -1,0 +1,880 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hierarchical model compostion &mdash; ncmw  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Script parameters" href="script_parameters.html" />
+    <link rel="prev" title="Community" href="community.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ncmw
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hierarchical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="script_parameters.html">Script Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">Module Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ncmw</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Hierarchical model compostion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/hierarchical_model_composition.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Hierarchical-model-compostion">
+<h1>Hierarchical model compostion<a class="headerlink" href="#Hierarchical-model-compostion" title="Permalink to this headline">¶</a></h1>
+<p>This implements a way to compute Hierarchical metabolic models, according to the SBML “comp” package. This has several advantages: * Within the SBML file only variables and constraints relevant for the community are saved. All other necessary variables stay within the original SBML files. * Changes to the individual models will be automatically transfered to the community model.</p>
+<p>The constructed SBML file does not contain the discription of the individual models, but instead only describes how these models should be combined! As a result we save there only things like shuttle reactions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ncmw.community</span> <span class="k">import</span> <span class="n">HierarchicalCommunityModel</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">HierarchicalCommunityModel</span><span class="p">([</span><span class="s2">&quot;../data/models/iDPM21RW.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;../data/models/iYS854.xml&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+c:\users\manug\desktop\ncmw projects\ncmw\ncmw\community\community_models.py:185: UserWarning: EX_pnto__e not present in the model thus removed from the medium.
+  warn(m + &#34; not present in the model thus removed from the medium.&#34;)
+</pre></div></div>
+</div>
+<p>Unfortunattly, hierarchical models are not supported within cobrapy. Yet, there exist an coverter the “flattening” algorithm. It does read the “description” on how to combine the individual models and exactly does this putting everythink into one file. This can now be read by cobrapy. All this is done in the background, in the end we obtain the same commuity model as before.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(4.9126648558793535,
+ [0.05, 4.862664855879354],
+ &lt;Solution 4.913 at 0x2271a6f2d00&gt;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">cooperative_tradeoff</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(3.930131884703483,
+ [0.3181086316240254, 3.6120232530794576],
+ &lt;Solution 3.930 at 0x2271b54a160&gt;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">cooperative_tradeoff</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Objective:  3.930131884703483
+DP_83VPs_KB5 :  0.3181086316240254  with weights  1.0
+iYS854 :  3.6120232530794576  with weights  1.0
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DP_83VPs_KB5</th>
+      <th>iYS854</th>
+      <th>Total exchange</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>EX_o2_e</th>
+      <td>-0.318511</td>
+      <td>-19.681489</td>
+      <td>-20.000000</td>
+    </tr>
+    <tr>
+      <th>EX_h_e</th>
+      <td>40.000000</td>
+      <td>-50.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_pyr_e</th>
+      <td>0.000000</td>
+      <td>-10.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_ser__L_e</th>
+      <td>0.000000</td>
+      <td>-10.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_glu__L_e</th>
+      <td>-0.193152</td>
+      <td>-9.806848</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_gly_e</th>
+      <td>-10.000000</td>
+      <td>0.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_orn_e</th>
+      <td>0.000000</td>
+      <td>-10.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_fum_e</th>
+      <td>0.066142</td>
+      <td>-10.066142</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_h2o_e</th>
+      <td>-27.994374</td>
+      <td>17.994374</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_urea_e</th>
+      <td>0.000000</td>
+      <td>-10.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_glc__D_e</th>
+      <td>-10.000000</td>
+      <td>0.000000</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_cys__L_e</th>
+      <td>-9.641221</td>
+      <td>-0.358779</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_fe3_e</th>
+      <td>-9.973170</td>
+      <td>-0.026830</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_thr__L_e</th>
+      <td>-0.078151</td>
+      <td>-9.921849</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_val__L_e</th>
+      <td>-8.672485</td>
+      <td>-1.327515</td>
+      <td>-10.000000</td>
+    </tr>
+    <tr>
+      <th>EX_pi_e</th>
+      <td>-0.136300</td>
+      <td>-7.927309</td>
+      <td>-8.063609</td>
+    </tr>
+    <tr>
+      <th>EX_ala__L_e</th>
+      <td>-1.382519</td>
+      <td>-6.329040</td>
+      <td>-7.711559</td>
+    </tr>
+    <tr>
+      <th>EX_na1_e</th>
+      <td>-0.028827</td>
+      <td>-7.186120</td>
+      <td>-7.214947</td>
+    </tr>
+    <tr>
+      <th>EX_succ_e</th>
+      <td>0.000000</td>
+      <td>-5.409976</td>
+      <td>-5.409976</td>
+    </tr>
+    <tr>
+      <th>EX_lys__L_e</th>
+      <td>-0.105715</td>
+      <td>-1.302042</td>
+      <td>-1.407757</td>
+    </tr>
+    <tr>
+      <th>EX_leu__L_e</th>
+      <td>-0.138792</td>
+      <td>-1.134215</td>
+      <td>-1.273006</td>
+    </tr>
+    <tr>
+      <th>EX_ile__L_e</th>
+      <td>-0.089501</td>
+      <td>-1.168978</td>
+      <td>-1.258479</td>
+    </tr>
+    <tr>
+      <th>EX_phe__L_e</th>
+      <td>-0.375131</td>
+      <td>-0.412817</td>
+      <td>-0.787948</td>
+    </tr>
+    <tr>
+      <th>EX_k_e</th>
+      <td>-0.016950</td>
+      <td>-0.670717</td>
+      <td>-0.687667</td>
+    </tr>
+    <tr>
+      <th>EX_met__L_e</th>
+      <td>-0.047414</td>
+      <td>-0.292488</td>
+      <td>-0.339901</td>
+    </tr>
+    <tr>
+      <th>EX_his__L_e</th>
+      <td>-0.029185</td>
+      <td>-0.217614</td>
+      <td>-0.246799</td>
+    </tr>
+    <tr>
+      <th>EX_trp__L_e</th>
+      <td>-0.017511</td>
+      <td>-0.055408</td>
+      <td>-0.072919</td>
+    </tr>
+    <tr>
+      <th>EX_pro__L_e</th>
+      <td>-0.068099</td>
+      <td>0.000000</td>
+      <td>-0.068099</td>
+    </tr>
+    <tr>
+      <th>EX_mg2_e</th>
+      <td>-0.027267</td>
+      <td>-0.029810</td>
+      <td>-0.057077</td>
+    </tr>
+    <tr>
+      <th>EX_cl_e</th>
+      <td>-0.018693</td>
+      <td>-0.017887</td>
+      <td>-0.036580</td>
+    </tr>
+    <tr>
+      <th>EX_26dap__M_e</th>
+      <td>-0.030806</td>
+      <td>0.000000</td>
+      <td>-0.030806</td>
+    </tr>
+    <tr>
+      <th>EX_so4_e</th>
+      <td>-0.006899</td>
+      <td>-0.014903</td>
+      <td>-0.021802</td>
+    </tr>
+    <tr>
+      <th>EX_ca2_e</th>
+      <td>-0.016536</td>
+      <td>0.000000</td>
+      <td>-0.016536</td>
+    </tr>
+    <tr>
+      <th>EX_mn2_e</th>
+      <td>-0.012063</td>
+      <td>-0.002377</td>
+      <td>-0.014440</td>
+    </tr>
+    <tr>
+      <th>EX_zn2_e</th>
+      <td>-0.010132</td>
+      <td>-0.001170</td>
+      <td>-0.011302</td>
+    </tr>
+    <tr>
+      <th>EX_ni2_e</th>
+      <td>-0.011291</td>
+      <td>0.000000</td>
+      <td>-0.011291</td>
+    </tr>
+    <tr>
+      <th>EX_cobalt2_e</th>
+      <td>-0.011245</td>
+      <td>0.000000</td>
+      <td>-0.011245</td>
+    </tr>
+    <tr>
+      <th>EX_cu2_e</th>
+      <td>-0.010429</td>
+      <td>0.000000</td>
+      <td>-0.010429</td>
+    </tr>
+    <tr>
+      <th>EX_nac_e</th>
+      <td>-0.003788</td>
+      <td>-0.000305</td>
+      <td>-0.004094</td>
+    </tr>
+    <tr>
+      <th>EX_thm_e</th>
+      <td>-0.000069</td>
+      <td>-0.001611</td>
+      <td>-0.001680</td>
+    </tr>
+    <tr>
+      <th>EX_ribflv_e</th>
+      <td>-0.000137</td>
+      <td>-0.001078</td>
+      <td>-0.001216</td>
+    </tr>
+    <tr>
+      <th>EX_4abz_e</th>
+      <td>-0.000206</td>
+      <td>0.000000</td>
+      <td>-0.000206</td>
+    </tr>
+    <tr>
+      <th>EX_mobd_e</th>
+      <td>0.000000</td>
+      <td>-0.000025</td>
+      <td>-0.000025</td>
+    </tr>
+    <tr>
+      <th>EX_btn_e</th>
+      <td>0.000000</td>
+      <td>-0.000007</td>
+      <td>-0.000007</td>
+    </tr>
+    <tr>
+      <th>EX_glyclt_e</th>
+      <td>0.000206</td>
+      <td>0.001611</td>
+      <td>0.001817</td>
+    </tr>
+    <tr>
+      <th>EX_12ppd__S_e</th>
+      <td>1.283582</td>
+      <td>0.000000</td>
+      <td>1.283582</td>
+    </tr>
+    <tr>
+      <th>EX_arg__L_e</th>
+      <td>-0.091122</td>
+      <td>8.697572</td>
+      <td>8.606449</td>
+    </tr>
+    <tr>
+      <th>EX_h2s_e</th>
+      <td>9.611318</td>
+      <td>0.000000</td>
+      <td>9.611318</td>
+    </tr>
+    <tr>
+      <th>EX_fe2_e</th>
+      <td>9.949435</td>
+      <td>-0.026476</td>
+      <td>9.922959</td>
+    </tr>
+    <tr>
+      <th>EX_ac_e</th>
+      <td>0.000000</td>
+      <td>29.922814</td>
+      <td>29.922814</td>
+    </tr>
+    <tr>
+      <th>EX_for_e</th>
+      <td>33.998380</td>
+      <td>-1.840821</td>
+      <td>32.157560</td>
+    </tr>
+    <tr>
+      <th>EX_nh4_e</th>
+      <td>28.691262</td>
+      <td>17.424008</td>
+      <td>46.115271</td>
+    </tr>
+    <tr>
+      <th>EX_etoh_e</th>
+      <td>0.000000</td>
+      <td>58.841964</td>
+      <td>58.841964</td>
+    </tr>
+    <tr>
+      <th>EX_co2_e</th>
+      <td>13.575324</td>
+      <td>71.790631</td>
+      <td>85.365954</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="script_parameters.html" class="btn btn-neutral float-right" title="Script parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="community.html" class="btn btn-neutral float-left" title="Community" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, manuelgloeckler
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

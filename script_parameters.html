@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Script parameters &mdash; ncmw  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Hierarchical model compostion" href="hierarchical_model_composition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ncmw
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hierarchical_model_composition.html">Hierarchical</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Script Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">Module Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ncmw</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Script parameters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/script_parameters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="script-parameters">
+<h1>Script parameters<a class="headerlink" href="#script-parameters" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we will describe the possible parameters for the workflow scripts. Further we will quickly introduce how to change parameters.</p>
+<p>The default parameters are listed in <cite>data/hydra</cite> within .yml files. To run the whole workflow just open your terminal of choice and write</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncmw
+</pre></div>
+</div>
+<p>It will lsit all parameters at the beginning, you can verify that these are exactly the on listed within the files. Thus one way to modify the parameters is to simply modify these files!</p>
+<p>Yet, in some cases we may not want to permanetly change a default value, but just for one run. In this case we can overwrite the parameters within the terminal. For example to create a new project we can just modify the command using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncmw <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;other_name&quot;</span>
+</pre></div>
+</div>
+<p>Note that <cite>name</cite> is one of the general parameters and thus can be set directly. Lets also consider how to change parmeters from setup or community. Lets say we want to disable “fastcc” because our models are already curated and further do not want to produce results based on the BagOfReactions Community model, then we can use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncmw setup.fastcc<span class="o">=</span><span class="nb">false</span> community.bag_of_reactions_model<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>We can also directly add some new parameters, this maybe usefull to extend the “names” i.e</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncmw <span class="s1">&#39;+visualization.names={&quot;id&quot;:&quot;name&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>General parameters for any of the scripts:</p>
+<ul class="simple">
+<li><strong>name</strong>: The name of the project. This will affect the folder name within the result folder, the default name is “default_project_name”</li>
+<li><strong>seed</strong>: The random seed, which is used by any random operation (default = 1).</li>
+<li><strong>eps</strong>: That’s a cutoff growth on which we perform e.g. gap filling (default= 0.01)</li>
+<li><strong>run_setup</strong>: Wheather to run setup (default true)</li>
+<li><strong>run_analysis</strong>: Wheather to run analysis (default true)</li>
+<li><strong>run_community</strong>: Wheather to run community (default true)</li>
+<li><strong>overwrite_all</strong>: Wheather to overwrite all files (by default the scripts skip tasks which were already completed) (default false)</li>
+</ul>
+<p>Now there are some parameters for the setup:</p>
+<ul class="simple">
+<li><strong>fastcc</strong>: Wheather to improve model quality with FastCC (default true)</li>
+<li><strong>set_bounds_and_medium</strong>: Wheather to set bound and medium as specified in “data” (default true)</li>
+<li><strong>memote_evaluation</strong>: Wheather to run a memote evaluation. This may take a while! (default true)</li>
+<li><strong>memote_solver_time_out</strong>: A time out for memote (it can get stuck some times…) (default 10 minutes)</li>
+<li><strong>gapfill</strong>: Which type of gap filling should be performed, we use: “medium” or “model” to either extend the medium or the model (default “medium”)</li>
+<li><strong>configs</strong>: The name of the config file (default default.json)</li>
+<li><strong>medium</strong>: The name of the medium file (default snm3.json)</li>
+<li><strong>models</strong>: The folder name of the models (default models)</li>
+</ul>
+<p>Next, there are some parameters for analysis:</p>
+<ul class="simple">
+<li><strong>fva_fraction</strong>: The fraction of optimal growth that must be achieved in FVA. (default 1.)</li>
+<li><strong>sekretion_uptake</strong>: Wheather to compute secretion and uptake (default true)</li>
+<li><strong>require_setup</strong>: Wheather we require that setup was run before (default true)</li>
+<li><strong>check_transport</strong>: Wheater we should check the transport reactions (default true)</li>
+<li><strong>check_uptake_sekretion</strong>: Wheater we should check the uptakes and secretion (default true)</li>
+</ul>
+<p>Now also the community has several parameters which can be set:</p>
+<ul class="simple">
+<li><strong>bag_of_reactions_model</strong>: Wheater we should perform all experiments with the BagOfReaction model (default true)</li>
+<li><strong>shuttle_reactions_model</strong>: Wheater we should perform all experiments with the ShuttleReaction model (default true)</li>
+<li><strong>shuttle_reaction_params</strong>:<ul>
+<li>shared_reactions: The set of reactions which are shared (experimental, not tested, default None -&gt; all)</li>
+<li>shuttle_reaction_lower_bound: The lower bound of shuttle reactions (default -50)</li>
+<li>shuttle_reaction_upper_bound: The upper bound of shuttle reactions (default is 1000)</li>
+<li>shuttle_regularization: Wheater to regularize shuttles to make them growth depndent (0 growth -&gt; 0 input flux, default true)</li>
+<li>shuttle_regularization_factor: Shuttle regularization factor, the higher the less influence (default 10000)</li>
+</ul>
+</li>
+<li><strong>main_weights</strong>: The weights considered for each experiment. You can either specify it by yourself as list i.e [1,1,1,1,1]. Equivalently to this you can use “ones”. We also implement “fair” which tries to choose weights antiproportional to their individual growth values. (default “ones”)</li>
+<li><strong>models_folder</strong>: The folder for models that should be considered. If “setup” is specified it takes them from a previous setup run! (default “setup”)</li>
+<li><strong>save_models</strong>: Wheater to save models using pickle! (default true)</li>
+<li><strong>save_as_sbml</strong>: Wheater to save models as sbml (xml) (default true)</li>
+<li><strong>coopm_params</strong>:<ul>
+<li>fraction: The fraction of maximum biomass rate that the community have to attain minimally (default 0.1)</li>
+<li>enforce_survival: Wheater to enforece the survival of <strong>all</strong> members (default  0.01)</li>
+</ul>
+</li>
+<li><strong>medium_strict_subset_of_default</strong>: Wheater the medium must be a strict subset of default medium i.e. excluding previous addition i.e. by gapfilling (default false)</li>
+<li><strong>medium</strong>:<ul>
+<li>default: Perform all experiments on default medium (default true)</li>
+<li>compm: Perform all experiments on COMPM medium (requires analysis run previous to that) (default true)</li>
+<li>coopm: Perform all experiments on COOPM medium (requires COMPM) (default true)</li>
+</ul>
+</li>
+<li><strong>optimize_params</strong>:<ul>
+<li>enforce_survival: If for each optimzation run we should enforece the survival of</li>
+</ul>
+</li>
+<li><strong>compute_community_fva</strong>: Wheater to compute FVA results for the community model (default true)</li>
+<li><strong>community_fva_params</strong>:<ul>
+<li>fraction_of_optimum: Which fraction from MBR used in FBA. (default 0.9)</li>
+<li>processes: Number of processors involved (default 10)</li>
+</ul>
+</li>
+<li><strong>cooperative_tradeoff</strong>: Wheather to compute results with cooperative_tradeoff (default true).</li>
+<li><strong>cooperative_tradeoff_params</strong>:<ul>
+<li>alpha: The tradeoff value used (defualt 0.9)</li>
+</ul>
+</li>
+<li><strong>pairwise_growth</strong>: Wheater to compute all pairwise growth relationships (default true).</li>
+<li><strong>pairwise_growth_params</strong>:<ul>
+<li>h: Number of discretiztaion steps for weights (default 100)</li>
+</ul>
+</li>
+<li><strong>compute_infer_weights</strong>: Wheater to infer weights (default true)</li>
+<li><strong>infer_weights</strong>:<ul>
+<li>simulations_for_different_weights: Simulation used within the simulation-based inference procedure (default 2000)</li>
+<li>observed_individual_biomass: Observed individual biomass values. As default we use “balanced” i.e. each species should have the same biomass value. If you have any custom inference goal you can set it here by passing a list of values.</li>
+<li>medium: On which medium we do inference (default is on default medium)</li>
+<li>enforce_survival: Wheater we use enforce survival constraints (default 0.0)</li>
+<li>competitive_tradeoff: Wheater we use competitive_tradeoff (default false)</li>
+<li>competitive_tradeoff_alpha: Parameterse used in competitive tradeoff (default 0.9)</li>
+</ul>
+</li>
+</ul>
+<p>Last but not least we add parameters for the visualization:</p>
+<ul class="simple">
+<li><strong>scaled_medium_growth_plot</strong>:<ul>
+<li>min_scale: The minimal medium scale value (default 0.1)</li>
+<li>max_scale: The maximum medium scale value (default 100)</li>
+<li>evaluations:The evaluations (discretization steps) (default 1000)</li>
+</ul>
+</li>
+<li><strong>cmap</strong>: A color map used to choose colors!</li>
+<li><strong>names</strong>: Here you can pass a map that maps model_id -&gt; name. This will only change the name within figures!<ul>
+<li>CarveMe_SNM_gapfilled_model: M. catarrhalis</li>
+<li>DP_83VPs_KB5: D. pigrum</li>
+<li>iYS854: S. aureus</li>
+<li>Staphylococcus_epidermidis_ATCC_12228: S. epidermidis</li>
+<li>himodel: H. influenzae</li>
+<li>Aba: A. baumannii</li>
+<li>iDPM21RW: D. pigrum</li>
+<li>MODEL1507180054: K. pneumoniae</li>
+<li>Hin: H. influenzae</li>
+<li>Slu: S. lugdunensis</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hierarchical_model_composition.html" class="btn btn-neutral float-left" title="Hierarchical model compostion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, manuelgloeckler
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
